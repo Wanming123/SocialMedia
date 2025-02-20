@@ -6,7 +6,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
 import { StyledCard, Media, Overlay, Overlay2, Details, Title, StyledCardActions } from './styles';
 
-const POST = ({ post }) => {
+const POST = ({ post, setCurrentId }) => {
   return (
     <StyledCard>
       <Media image={post.selectedFile} title={post.title} />
@@ -15,7 +15,10 @@ const POST = ({ post }) => {
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </Overlay>
       <Overlay2>
-        <Button style={{ color: 'white' }} size="small" onClick={() => {}}>
+        <Button 
+          style={{ color: 'white' }} 
+          size="small" 
+          onClick={() => setCurrentId(post._id)} >
           <MoreHorizIcon fontSize="default" />
         </Button>
       </Overlay2>
