@@ -6,7 +6,7 @@ import { getPosts } from './actions/posts';
 import Post from './components/Posts/Posts';
 import Form from './components/Form/Form';
 import memories from './images/memoriesLogo.png';
-import { AppBar, Heading, Image } from './styles';
+import { AppBar, Heading, Image, MainContainer } from './styles';
 
 const App = () => {
   const [currentId, setCurrentId] = useState(null);
@@ -24,14 +24,14 @@ const App = () => {
       </AppBar>
       <Grow in>
         <Container>
-          <Grid container alignItems='stretch' spacing={3}>
+          <MainContainer container alignItems='stretch' spacing={3}>
             <Grid item xs={12} md={7}>
               <Post setCurrentId={setCurrentId}/>
             </Grid>
             <Grid item xs={12} md={4}>
               <Form currentId={currentId} setCurrentId={setCurrentId}/>
             </Grid>
-          </Grid>
+          </MainContainer>
         </Container>
       </Grow>
     </Container>

@@ -34,13 +34,13 @@ const POST = ({ post, setCurrentId }) => {
           <Typography variant="h5" gutterBottom>{post.title}</Typography>
         </Title>
         <Title>
-          <Typography variant="h5" gutterBottom>{post.message}</Typography>
+          <Typography variant="body2" color="textSecondary" gutterBottom>{post.message}</Typography>
         </Title>
       </CardContent>
       <StyledCardActions>
         <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}>
           <ThumbUpAltIcon fontSize="small" />
-          Like
+          &nbsp; Like &nbsp;
           {post.likeCount}
         </Button>
         <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
