@@ -6,7 +6,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
 import { StyledCard, Media, Overlay, Overlay2, Details, Title, StyledCardActions } from './styles';
 import { useDispatch } from 'react-redux';
-import { deletePost } from '../../../actions/posts';
+import { deletePost, likePost } from '../../../actions/posts';
 
 const POST = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const POST = ({ post, setCurrentId }) => {
         </Title>
       </CardContent>
       <StyledCardActions>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}>
           <ThumbUpAltIcon fontSize="small" />
           Like
           {post.likeCount}
