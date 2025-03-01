@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for server-restless-mountain-1249 on 2025-10-23T00:45:48-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'server-restless-mountain-1249'
+primary_region = 'iad'
+
+[build]
+  PORT = "3001"
+
+[http_service]
+  internal_port = 3001
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
