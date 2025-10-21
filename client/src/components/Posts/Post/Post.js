@@ -5,8 +5,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
 import { StyledCard, Media, Overlay, Overlay2, Details, Title, StyledCardActions } from './styles';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../../actions/posts';
 
 const POST = ({ post, setCurrentId }) => {
+  const dispatch = useDispatch();
+
   return (
     <StyledCard>
       <Media image={post.selectedFile} title={post.title} />
@@ -27,6 +31,9 @@ const POST = ({ post, setCurrentId }) => {
       </Details>
       <CardContent>
         <Title>
+          <Typography variant="h5" gutterBottom>{post.title}</Typography>
+        </Title>
+        <Title>
           <Typography variant="h5" gutterBottom>{post.message}</Typography>
         </Title>
       </CardContent>
@@ -36,7 +43,7 @@ const POST = ({ post, setCurrentId }) => {
           Like
           {post.likeCount}
         </Button>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize="small" />
           Delete
         </Button>
